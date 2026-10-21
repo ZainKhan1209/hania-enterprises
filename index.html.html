@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hania Enterprises | Premier Real Estate & Builders</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = { theme: { extend: { colors: {
+  espresso: { 700:'#5C1F0D', 800:'#4A1A0C', 900:'#2B0E05' },
+  copper: { 500:'#C8602A', 600:'#A94A1E' },
+  cream: '#FBF6EE'
+}}}}
+</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  body { font-family: 'Plus Jakarta Sans', sans-serif; }
+  .glass-card { background:#fff; border:1px solid #F1DFCB; box-shadow:0 6px 24px rgba(92,31,13,.07); }
+</style>
+</head>
+<body class="bg-cream text-stone-700 antialiased selection:bg-copper-500 selection:text-espresso-900">
+
+<!-- TOP BAR -->
+<div class="bg-espresso-900 text-amber-200 text-xs font-bold py-2.5 px-4 text-center shadow-md">
+  <i class="fa-solid fa-gift mr-2"></i> Exclusive 2 Lac Discount on booking of Titanium Block! Call 0336-9531343 &nbsp;|&nbsp; Toll Free: 0800-43700
+</div>
+
+<!-- NAVBAR (single copy) -->
+<nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-orange-200 shadow-2xl">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-20">
+      <a href="#" onclick="showPage('home');return false" class="flex items-center shrink-0">
+        <img src="logo.png" alt="Hania Enterprises" class="h-14 sm:h-16 w-auto">
+      </a>
+
+      <div class="hidden lg:flex items-center space-x-6 text-sm font-medium">
+        <button onclick="showPage('home')" class="hover:text-copper-600 transition-colors py-2">Home</button>
+        <button onclick="showPage('about')" class="hover:text-copper-600 transition-colors py-2">About Us</button>
+        <button onclick="showPage('projects')" class="hover:text-copper-600 transition-colors py-2">All Projects</button>
+        <button onclick="filterCategory('mixed')" class="hover:text-copper-600 transition-colors py-2">Mixed Use</button>
+        <button onclick="filterCategory('commercial')" class="hover:text-copper-600 transition-colors py-2">Commercial</button>
+        <button onclick="filterCategory('residential')" class="hover:text-copper-600 transition-colors py-2">Residential</button>
+        <button onclick="showPage('calculator')" class="hover:text-copper-600 transition-colors py-2"><i class="fa-solid fa-calculator text-copper-600 mr-1"></i> Calculator</button>
+        <button onclick="showPage('contact')" class="hover:text-copper-600 transition-colors py-2">Contact</button>
+      </div>
+
+      <div class="hidden lg:flex items-center gap-4">
+        <a href="tel:03369531343" class="text-xs font-bold text-espresso-800 hover:text-copper-600 flex items-center gap-2 bg-orange-50 px-3 py-2 rounded-lg border border-orange-200">
+          <i class="fa-solid fa-phone text-copper-600"></i> 0336-9531343
+        </a>
+        <button onclick="openBookingModal('General Booking Request')" class="bg-gradient-to-r from-copper-500 to-amber-500 hover:brightness-110 text-espresso-900 font-extrabold text-xs uppercase px-5 py-2.5 rounded-lg shadow-md">Book Now</button>
+      </div>
+
+      <button onclick="toggleMobileMenu()" class="lg:hidden text-stone-600 hover:text-espresso-900 p-2"><i class="fa-solid fa-bars text-2xl"></i></button>
+    </div>
+  </div>
+
+  <div id="mobileMenu" class="hidden lg:hidden bg-white border-t border-orange-200 px-4 pt-2 pb-6 space-y-1 text-sm">
+    <button onclick="showPage('home')" class="block w-full text-left py-2.5 hover:text-copper-600">Home</button>
+    <button onclick="showPage('about')" class="block w-full text-left py-2.5 hover:text-copper-600">About Us</button>
+    <button onclick="showPage('projects')" class="block w-full text-left py-2.5 hover:text-copper-600">All Projects</button>
+    <button onclick="filterCategory('mixed')" class="block w-full text-left py-2.5 hover:text-copper-600">Mixed Use</button>
+    <button onclick="filterCategory('commercial')" class="block w-full text-left py-2.5 hover:text-copper-600">Commercial</button>
+    <button onclick="filterCategory('residential')" class="block w-full text-left py-2.5 hover:text-copper-600">Residential</button>
+    <button onclick="showPage('calculator')" class="block w-full text-left py-2.5 hover:text-copper-600">Installment Calculator</button>
+    <button onclick="showPage('contact')" class="block w-full text-left py-2.5 hover:text-copper-600">Contact Us</button>
+    <a href="tel:03369531343" class="block py-2.5 text-copper-600 font-bold"><i class="fa-solid fa-phone mr-2"></i>0336-9531343</a>
+    <a href="tel:080043700" class="block py-2.5 text-copper-600 font-bold"><i class="fa-solid fa-phone-volume mr-2"></i>Toll Free: 0800-43700</a>
+  </div>
+</nav>
+
+<main>
+  <!-- HOME -->
+  <div id="page-home" class="page-content">
+    <section class="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-espresso-900 py-20">
+      <div class="absolute inset-0 opacity-60 bg-cover bg-center"
+           style="background-image:url('images/hero.jpg'),url('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1920&q=80')"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-espresso-900 via-espresso-900/75 to-espresso-800/40"></div>
+      <div class="relative z-10 max-w-7xl mx-auto px-4 text-center">
+        <span class="inline-block bg-white/10 border border-white/30 text-amber-200 text-xs uppercase tracking-widest font-bold px-4 py-1.5 rounded-full mb-6">Authorized Real Estate &amp; Project Marketers</span>
+        <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-6">
+          Discover Exceptional Properties With <br>
+          <span class="bg-gradient-to-r from-amber-200 via-amber-300 to-orange-300 bg-clip-text text-transparent">Hania Enterprises</span>
+        </h1>
+        <p class="max-w-3xl mx-auto text-base md:text-lg text-slate-300 mb-8 leading-relaxed">Your trusted portal for Commercial Malls, Luxury Apartments, and Premium Residential Sectors across North Town Residency &amp; Prime Karachi Locations.</p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <button onclick="showPage('projects')" class="bg-copper-500 hover:bg-copper-600 text-white font-extrabold text-sm uppercase px-8 py-4 rounded-xl shadow-xl transition hover:-translate-y-1">Explore All Projects <i class="fa-solid fa-arrow-right ml-2"></i></button>
+          <a href="https://wa.me/923369531343" target="_blank" rel="noopener" class="bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm uppercase px-8 py-4 rounded-xl flex items-center gap-2"><i class="fa-brands fa-whatsapp text-lg"></i> WhatsApp Booking</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-8 bg-gradient-to-r from-copper-600 via-copper-500 to-amber-500 text-white">
+      <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-4">
+          <i class="fa-solid fa-tags text-4xl"></i>
+          <div>
+            <h3 class="text-xl font-black uppercase">Titanium Block Limited Time Offer</h3>
+            <p class="text-xs font-bold text-white/90">Avail instant 2 Lac PKR discount on every residential &amp; commercial plot booking in NTR-1.</p>
+          </div>
+        </div>
+        <button onclick="openBookingModal('Titanium Block 2 Lac Discount Offer')" class="bg-white hover:bg-orange-50 text-copper-600 font-extrabold px-6 py-3 rounded-xl text-xs uppercase shadow-lg">Claim 2 Lac Discount Now</button>
+      </div>
+    </section>
+
+        <section class="py-16 bg-white border-y border-orange-100">
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <span class="text-copper-600 font-bold text-xs uppercase tracking-widest">Why Hania Enterprises</span>
+          <h2 class="text-3xl font-extrabold text-espresso-900 mt-1">Property Buying, Made Simple</h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="bg-cream rounded-2xl p-8 border border-orange-100 text-center"><div class="w-14 h-14 mx-auto rounded-xl bg-gradient-to-br from-copper-500 to-amber-500 text-white flex items-center justify-center text-2xl mb-4"><i class="fa-solid fa-handshake"></i></div><h3 class="font-bold text-espresso-900 text-lg mb-2">Transparent Dealing</h3><p class="text-sm text-stone-600">Clear information on units, payments and availability before you commit.</p></div>
+          <div class="bg-cream rounded-2xl p-8 border border-orange-100 text-center"><div class="w-14 h-14 mx-auto rounded-xl bg-gradient-to-br from-copper-500 to-amber-500 text-white flex items-center justify-center text-2xl mb-4"><i class="fa-solid fa-calendar-check"></i></div><h3 class="font-bold text-espresso-900 text-lg mb-2">Easy Installments</h3><p class="text-sm text-stone-600">Flexible 3 to 4 year plans so you can plan your budget comfortably.</p></div>
+          <div class="bg-cream rounded-2xl p-8 border border-orange-100 text-center"><div class="w-14 h-14 mx-auto rounded-xl bg-gradient-to-br from-copper-500 to-amber-500 text-white flex items-center justify-center text-2xl mb-4"><i class="fa-solid fa-headset"></i></div><h3 class="font-bold text-espresso-900 text-lg mb-2">Direct Support</h3><p class="text-sm text-stone-600">Talk to our sales desk on call or WhatsApp at 0336-9531343.</p></div>
+        </div>
+      </div>
+    </section>
+
+<section class="py-16 bg-white border-y border-orange-200">
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="glass-card p-8 md:p-12 rounded-3xl text-center max-w-4xl mx-auto">
+          <span class="text-copper-600 font-bold text-xs uppercase tracking-widest">Leadership &amp; Trust</span>
+          <h2 class="text-3xl font-extrabold text-espresso-900 mt-2 mb-6">Message From Our CEO</h2>
+          <blockquote class="text-stone-600 text-base md:text-lg italic leading-relaxed mb-6 border-y border-orange-200 py-6">
+            "At Hania Enterprises, our priority is providing investors and home buyers with secure, transparent, and high-yielding real estate options. From North Town Residency sectors to flagship commercial projects like GFS Chase Mall and Mega Mall &amp; Residency, we deliver excellence at every step."
+          </blockquote>
+          <div class="inline-flex items-center gap-3 bg-espresso-900/60 px-6 py-3 rounded-full border border-orange-200">
+            <i class="fa-solid fa-user-tie text-copper-600 text-xl"></i>
+            <div class="text-left">
+              <div class="font-bold text-espresso-900 text-sm">Mr. Ahsan Jr</div>
+              <div class="text-[10px] text-copper-600 uppercase tracking-wider font-semibold">Chief Executive Officer (CEO)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 bg-cream">
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="flex justify-between items-end mb-12">
+          <div>
+            <span class="text-copper-600 font-bold text-xs uppercase tracking-widest">Featured Portfolio</span>
+            <h2 class="text-3xl font-extrabold text-espresso-900 mt-1">Our Featured Projects</h2>
+          </div>
+          <button onclick="showPage('projects')" id="viewAllBtn" class="text-copper-600 font-bold text-sm hover:underline"></button>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8" id="featuredGrid"></div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ABOUT -->
+  <div id="page-about" class="page-content hidden py-16">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-copper-600 font-bold text-xs uppercase tracking-widest">About Hania Enterprises</span>
+        <h1 class="text-4xl font-extrabold text-espresso-900 mt-2 mb-4">Your Trusted Real Estate Partner</h1>
+        <p class="text-stone-600 text-sm md:text-base leading-relaxed">Hania Enterprises operates under the visionary leadership of CEO Mr. Ahsan Jr. Based in North Karachi, we provide specialized real estate consultancy, project booking, and investment management services for premium commercial malls, luxury apartments, and residential societies.</p>
+      </div>
+      <div class="glass-card p-8 rounded-3xl max-w-3xl mx-auto text-center">
+        <h3 class="text-xl font-bold text-espresso-900 mb-4"><i class="fa-solid fa-location-dot text-copper-600 mr-2"></i> Official Head Office</h3>
+        <p class="text-stone-600 text-sm mb-4">R-95 sector 5a2 North Karachi, Karachi, Pakistan</p>
+        <p class="text-copper-600 font-bold mb-2"><i class="fa-solid fa-phone mr-2"></i> Direct Contact: 0336-9531343</p>
+        <p class="text-stone-600 text-sm mb-1"><i class="fa-solid fa-phone-volume text-copper-600 mr-2"></i> Toll Free: 0800-43700</p>
+        <p class="text-stone-600 text-sm mb-1"><i class="fa-solid fa-envelope text-copper-600 mr-2"></i> haniagfs94@gmail.com</p>
+        <p class="text-stone-600 text-sm"><i class="fa-solid fa-clock text-copper-600 mr-2"></i> Mon - Sun: 10:30 AM - 7:00 PM</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROJECTS -->
+  <div id="page-projects" class="page-content hidden py-16">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="text-center max-w-3xl mx-auto mb-8">
+        <span class="text-copper-600 font-bold text-xs uppercase tracking-widest">Complete Catalog</span>
+        <h1 class="text-4xl font-extrabold text-espresso-900 mt-2 mb-4">All Hania Enterprises Projects</h1>
+      </div>
+      <div class="flex flex-wrap justify-center gap-3 mb-12" id="filterBar"></div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="projectsGrid"></div>
+    </div>
+  </div>
+
+  <!-- CALCULATOR -->
+  <div id="page-calculator" class="page-content hidden py-16">
+    <div class="max-w-3xl mx-auto px-4">
+      <div class="glass-card p-8 rounded-3xl">
+        <div class="text-center mb-8">
+          <span class="text-copper-600 font-bold text-xs uppercase tracking-widest">Financial Planning</span>
+          <h1 class="text-3xl font-extrabold text-espresso-900 mt-1">Payment &amp; Installment Calculator</h1>
+        </div>
+        <div class="space-y-6">
+          <div>
+            <label class="block text-xs font-semibold text-stone-600 mb-2">Total Property Amount (PKR)</label>
+            <input type="number" id="calcTotal" value="3000000" step="100000" oninput="calculateEMI()" class="w-full bg-white border border-orange-200 rounded-xl px-4 py-3 text-espresso-900 text-sm focus:outline-none focus:border-copper-500">
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-stone-600 mb-2">Down Payment (%)</label>
+            <input type="range" id="calcDownPercent" min="10" max="50" value="20" class="w-full accent-orange-700" oninput="calculateEMI()">
+            <div class="flex justify-between text-xs text-copper-600 font-bold mt-1"><span id="downPercentVal">20%</span><span id="downAmountVal">PKR 600,000</span></div>
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-stone-600 mb-2">Tenure (Years)</label>
+            <select id="calcTenure" onchange="calculateEMI()" class="w-full bg-white border border-orange-200 rounded-xl px-4 py-3 text-espresso-900 text-sm focus:outline-none focus:border-copper-500">
+              <option value="3">3 Years (36 Months)</option>
+              <option value="4">4 Years (48 Months)</option>
+            </select>
+          </div>
+          <div class="bg-orange-50 p-6 rounded-2xl border border-orange-200 text-center">
+            <div class="text-xs text-stone-500 uppercase tracking-wider mb-1">Estimated Monthly Installment</div>
+            <div id="monthlyEMI" class="text-3xl font-extrabold text-copper-600"></div>
+          </div>
+          <button onclick="openBookingModal('Calculated Plan Inquiry')" class="w-full bg-copper-500 hover:bg-copper-600 text-espresso-900 font-bold py-3.5 rounded-xl text-xs uppercase">Proceed With Booking</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <div id="page-contact" class="page-content hidden py-16">
+    <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <div>
+        <span class="text-copper-600 font-bold text-xs uppercase tracking-widest">Connect With Us</span>
+        <h1 class="text-4xl font-extrabold text-espresso-900 mt-2 mb-6">Contact Hania Enterprises</h1>
+        <div class="space-y-6">
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-lg bg-orange-100 border border-orange-200 flex items-center justify-center text-copper-600"><i class="fa-solid fa-location-dot"></i></div>
+            <div><h4 class="font-bold text-espresso-900 text-sm">Head Office Address</h4><p class="text-xs text-stone-500">R-95 sector 5a2 North Karachi, Karachi</p></div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-lg bg-orange-100 border border-orange-200 flex items-center justify-center text-copper-600"><i class="fa-solid fa-phone"></i></div>
+            <div><h4 class="font-bold text-espresso-900 text-sm">Direct Contact Line</h4><p class="text-xs text-stone-500">0336-9531343</p></div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-lg bg-orange-100 border border-orange-200 flex items-center justify-center text-copper-600"><i class="fa-solid fa-phone-volume"></i></div>
+            <div><h4 class="font-bold text-espresso-900 text-sm">Toll Free Number</h4><p class="text-xs text-stone-500"><a href="tel:080043700" class="hover:text-copper-600">0800-43700</a></p></div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-lg bg-orange-100 border border-orange-200 flex items-center justify-center text-copper-600"><i class="fa-solid fa-envelope"></i></div>
+            <div><h4 class="font-bold text-espresso-900 text-sm">Email Address</h4><p class="text-xs text-stone-500"><a href="mailto:haniagfs94@gmail.com" class="hover:text-copper-600">haniagfs94@gmail.com</a></p></div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-lg bg-orange-100 border border-orange-200 flex items-center justify-center text-copper-600"><i class="fa-solid fa-clock"></i></div>
+            <div><h4 class="font-bold text-espresso-900 text-sm">Office Timing</h4><p class="text-xs text-stone-500">Mon - Sun: 10:30 AM - 7:00 PM</p></div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-lg bg-orange-100 border border-orange-200 flex items-center justify-center text-copper-600"><i class="fa-brands fa-facebook-f"></i></div>
+            <div><h4 class="font-bold text-espresso-900 text-sm">Facebook Page</h4><p class="text-xs text-stone-500"><a href="https://www.facebook.com/profile.php?id=61577410719559" target="_blank" rel="noopener" class="hover:text-copper-600">Follow our official page for updates</a></p></div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-lg bg-orange-100 border border-orange-200 flex items-center justify-center text-copper-600"><i class="fa-brands fa-instagram"></i></div>
+            <div><h4 class="font-bold text-espresso-900 text-sm">Instagram</h4><p class="text-xs text-stone-500"><a href="https://www.instagram.com/haniaenterprises1/" target="_blank" rel="noopener" class="hover:text-copper-600">@haniaenterprises1</a></p></div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-lg bg-orange-100 border border-orange-200 flex items-center justify-center text-copper-600"><i class="fa-solid fa-user-tie"></i></div>
+            <div><h4 class="font-bold text-espresso-900 text-sm">Executive Office</h4><p class="text-xs text-stone-500">Mr. Ahsan Jr (CEO)</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="glass-card p-8 rounded-3xl">
+        <h3 class="text-xl font-bold text-espresso-900 mb-6">Send Booking Request</h3>
+        <form onsubmit="handleFormSubmit(event)" class="space-y-4">
+          <div><label class="block text-xs text-stone-600 mb-1">Your Name</label><input type="text" required class="w-full bg-white border border-orange-200 rounded-lg p-3 text-sm text-espresso-900 focus:outline-none focus:border-copper-500"></div>
+          <div><label class="block text-xs text-stone-600 mb-1">Phone Number</label><input type="tel" required class="w-full bg-white border border-orange-200 rounded-lg p-3 text-sm text-espresso-900 focus:outline-none focus:border-copper-500"></div>
+          <div><label class="block text-xs text-stone-600 mb-1">Project Name</label><select id="contactProject" class="w-full bg-white border border-orange-200 rounded-lg p-3 text-sm text-espresso-900 focus:outline-none focus:border-copper-500"></select></div>
+          <button type="submit" class="w-full bg-copper-500 hover:bg-copper-600 text-espresso-900 font-bold py-3 rounded-lg text-xs uppercase">Send Inquiry</button>
+        </form>
+      </div>
+    </div>
+    <div class="max-w-7xl mx-auto px-4 mt-14">
+      <div class="text-center mb-6">
+        <span class="text-copper-600 font-bold text-xs uppercase tracking-widest">Visit Our Office</span>
+        <h2 class="text-2xl font-extrabold text-espresso-900 mt-1">Find Us On The Map</h2>
+        <p class="text-sm text-stone-600 mt-2"><i class="fa-solid fa-location-dot text-copper-600 mr-1"></i> R-95 sector 5a2 North Karachi, Karachi &nbsp;|&nbsp; Mon - Sun: 10:30 AM - 7:00 PM</p>
+      </div>
+      <div class="rounded-3xl overflow-hidden border border-orange-200 shadow-lg bg-white">
+        <iframe title="Hania Enterprises Office Location" src="https://www.google.com/maps?q=R-95+Sector+5A2+North+Karachi,+Karachi,+Pakistan&output=embed" class="w-full h-[380px] border-0" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+      </div>
+      <div class="text-center mt-5">
+        <a href="https://www.google.com/maps/search/?api=1&query=R-95+Sector+5A2+North+Karachi,+Karachi,+Pakistan" target="_blank" rel="noopener" class="inline-flex items-center gap-2 bg-copper-500 hover:bg-copper-600 text-white font-bold text-xs uppercase px-6 py-3 rounded-xl"><i class="fa-solid fa-diamond-turn-right"></i> Get Directions</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- DETAIL -->
+  <div id="page-detail" class="page-content hidden py-16">
+    <div class="max-w-5xl mx-auto px-4" id="projectDetailContainer"></div>
+  </div>
+</main>
+
+<!-- BOOKING MODAL -->
+<div id="bookingModal" class="fixed inset-0 z-50 hidden bg-espresso-900/60 backdrop-blur-md items-center justify-center p-4">
+  <div class="glass-card max-w-md w-full rounded-3xl p-8 relative border border-orange-200">
+    <button onclick="closeBookingModal()" class="absolute top-4 right-4 text-stone-500 hover:text-espresso-900"><i class="fa-solid fa-xmark text-xl"></i></button>
+    <h3 class="text-xl font-bold text-espresso-900 mb-1">Unit Booking</h3>
+    <p id="bookingModalTitle" class="text-xs text-copper-600 mb-6 font-semibold">Project Inquiry</p>
+    <form onsubmit="handleFormSubmit(event)" class="space-y-4">
+      <div><label class="block text-xs text-stone-600 mb-1">Full Name</label><input type="text" required class="w-full bg-white border border-orange-200 rounded-lg p-2.5 text-sm text-espresso-900 focus:outline-none focus:border-copper-500"></div>
+      <div><label class="block text-xs text-stone-600 mb-1">Phone Number</label><input type="tel" required class="w-full bg-white border border-orange-200 rounded-lg p-2.5 text-sm text-espresso-900 focus:outline-none focus:border-copper-500"></div>
+      <button type="submit" class="w-full bg-copper-500 hover:bg-copper-600 text-espresso-900 font-bold py-3 rounded-xl text-xs uppercase mt-2">Submit Booking Form</button>
+    </form>
+  </div>
+</div>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/923369531343" target="_blank" rel="noopener" class="fixed bottom-6 right-6 bg-emerald-500 hover:bg-emerald-400 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-2xl z-40 transition hover:scale-110"><i class="fa-brands fa-whatsapp text-3xl"></i></a>
+
+<!-- FOOTER -->
+<footer class="bg-espresso-900 border-t border-copper-500/30 pt-16 pb-8">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+
+      <!-- Brand -->
+      <div>
+        <div class="mb-4 inline-block bg-white px-3 py-1.5 rounded-xl border border-white/20"><img src="logo.png" alt="Hania Enterprises" class="h-12 w-auto"></div>
+        <p class="text-xs text-slate-300 leading-relaxed mb-4">Hania Enterprises is a Karachi-based real estate consultancy and project marketing firm, led by CEO Mr. Ahsan Jr. We help buyers and investors explore commercial, residential and mixed-use projects with clear information, flexible payment plans and direct sales support.</p>
+        <div class="flex flex-wrap gap-2 mb-5">
+          <span class="text-[10px] font-semibold uppercase tracking-wider border border-white/20 text-amber-300 rounded-full px-3 py-1">Project Booking</span>
+          <span class="text-[10px] font-semibold uppercase tracking-wider border border-white/20 text-amber-300 rounded-full px-3 py-1">Consultancy</span>
+          <span class="text-[10px] font-semibold uppercase tracking-wider border border-white/20 text-amber-300 rounded-full px-3 py-1">Investment Guidance</span>
+        </div>
+        <div class="flex gap-3">
+          <a href="https://wa.me/923369531343" target="_blank" rel="noopener" aria-label="WhatsApp" class="w-9 h-9 rounded-full bg-white/10 hover:bg-emerald-500 flex items-center justify-center text-white transition"><i class="fa-brands fa-whatsapp"></i></a>
+          <a href="https://www.facebook.com/profile.php?id=61577410719559" target="_blank" rel="noopener" aria-label="Facebook" class="w-9 h-9 rounded-full bg-white/10 hover:bg-blue-600 flex items-center justify-center text-white transition"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/haniaenterprises1/" target="_blank" rel="noopener" aria-label="Instagram" class="w-9 h-9 rounded-full bg-white/10 hover:bg-pink-600 flex items-center justify-center text-white transition"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+      </div>
+
+      <!-- Quick links -->
+      <div>
+        <h4 class="text-sm font-bold text-white uppercase mb-4 border-b border-white/15 pb-2">Quick Links</h4>
+        <ul class="space-y-2 text-xs text-slate-300">
+          <li><a href="javascript:void(0)" onclick="showPage('about')" class="hover:text-amber-400">About Us</a></li>
+          <li><a href="javascript:void(0)" onclick="showPage('projects')" class="hover:text-amber-400">All Projects</a></li>
+          <li><a href="javascript:void(0)" onclick="filterCategory('mixed')" class="hover:text-amber-400">Commercial + Residential</a></li>
+          <li><a href="javascript:void(0)" onclick="filterCategory('commercial')" class="hover:text-amber-400">Commercial Projects</a></li>
+          <li><a href="javascript:void(0)" onclick="filterCategory('residential')" class="hover:text-amber-400">Residential Projects</a></li>
+          <li><a href="javascript:void(0)" onclick="showPage('calculator')" class="hover:text-amber-400">Installment Calculator</a></li>
+          <li><a href="javascript:void(0)" onclick="showPage('contact')" class="hover:text-amber-400">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <!-- Head office -->
+      <div>
+        <h4 class="text-sm font-bold text-white uppercase mb-4 border-b border-white/15 pb-2">Head Office</h4>
+        <p class="text-xs text-slate-300 mb-3"><i class="fa-solid fa-location-dot text-amber-400 mr-2"></i> R-95 sector 5a2 North Karachi, Karachi</p>
+        <p class="text-xs text-slate-300 mb-3"><i class="fa-solid fa-phone text-amber-400 mr-2"></i> <a href="tel:03369531343" class="hover:text-amber-400">0336-9531343</a></p>
+        <p class="text-xs text-slate-300 mb-3"><i class="fa-solid fa-phone-volume text-amber-400 mr-2"></i> Toll Free: <a href="tel:080043700" class="hover:text-amber-400">0800-43700</a></p>
+        <p class="text-xs text-slate-300 mb-3"><i class="fa-solid fa-envelope text-amber-400 mr-2"></i> <a href="mailto:haniagfs94@gmail.com" class="hover:text-amber-400">haniagfs94@gmail.com</a></p>
+        <p class="text-xs text-slate-300"><i class="fa-solid fa-clock text-amber-400 mr-2"></i> Mon - Sun: 10:30 AM - 7:00 PM</p>
+      </div>
+
+      <!-- Connect -->
+      <div>
+        <h4 class="text-sm font-bold text-white uppercase mb-4 border-b border-white/15 pb-2">Connect With Us</h4>
+        <div class="space-y-3">
+          <a href="https://wa.me/923369531343" target="_blank" rel="noopener" class="flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold px-4 py-2.5 rounded-lg"><i class="fa-brands fa-whatsapp text-base"></i> Chat on WhatsApp</a>
+          <a href="https://www.facebook.com/profile.php?id=61577410719559" target="_blank" rel="noopener" class="flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold px-4 py-2.5 rounded-lg"><i class="fa-brands fa-facebook-f text-base"></i> Follow on Facebook</a>
+          <a href="https://www.instagram.com/haniaenterprises1/" target="_blank" rel="noopener" class="flex items-center gap-2 bg-gradient-to-r from-pink-600 to-orange-500 hover:brightness-110 text-white text-xs font-bold px-4 py-2.5 rounded-lg"><i class="fa-brands fa-instagram text-base"></i> Follow on Instagram</a>
+          <a href="https://www.google.com/maps/search/?api=1&query=R-95+Sector+5A2+North+Karachi,+Karachi,+Pakistan" target="_blank" rel="noopener" class="flex items-center gap-2 border border-white/25 hover:bg-white/10 text-white text-xs font-bold px-4 py-2.5 rounded-lg"><i class="fa-solid fa-diamond-turn-right text-base"></i> Get Directions</a>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-white/10 pt-6 text-center text-xs text-slate-400">&copy; 2023 Hania Enterprises. All Rights Reserved. CEO: Mr. Ahsan Jr.</div>
+  </div>
+</footer>
+
+<script>
+// ---------- DATA ----------
+// Photos: put your own images in an "images" folder named 1.jpg ... 18.jpg (same as project id).
+// If a photo is missing, a stock photo and then a clean placeholder is shown automatically.
+const TONES = {
+  red:    'bg-red-50 text-red-700 border-red-200',
+  green:  'bg-emerald-50 text-emerald-700 border-emerald-200',
+  amber:  'bg-amber-50 text-amber-700 border-amber-300',
+  blue:   'bg-sky-50 text-sky-700 border-sky-200',
+  purple: 'bg-purple-50 text-purple-700 border-purple-200'
+};
+const allProjects = [
+  // Commercial + Residential
+  { id:1,  title:"Mega Mall and Residency 1", cat:"mixed", status:"Under Construction (Completely Sold)", tone:"red",   details:"A iconic mixed-use multi-story complex combining a commercial retail mall with executive apartments. 100% sold out in record time." },
+  { id:2,  title:"Mega Mall and Residency 2", cat:"mixed", status:"Under Construction (Booking Open)",    tone:"green", details:"Phase 2 of Mega Mall & Residency. Offering 2 & 3 bedroom luxury apartments and high-return commercial shops on 4-year easy monthly installments." },
+  { id:3,  title:"Mega Mall and Residency 3", cat:"mixed", status:"Under Construction (Completely Sold)", tone:"red",   details:"High-demand multi-story project offering premier boulevard commercial shops and penthouse residential flats." },
+  { id:4,  title:"Star Mall and Residency",   cat:"mixed", status:"Under Construction (Booking Open)",    tone:"green", details:"Located in prime commercial hub. Features state-of-the-art brand outlets, multi-screen food court, and corner luxury apartments." },
+  { id:5,  title:"Corner View Apartments 1",  cat:"mixed", status:"Under Construction (Booking Open)",    tone:"green", details:"Premium 2 & 3 Bed open-corner apartments with maximum natural ventilation, high-speed passenger elevators, and standby generators." },
+  { id:6,  title:"Corner View Apartments 2",  cat:"mixed", status:"Under Construction (Booking Open)",    tone:"green", details:"Modern apartment suite block featuring dedicated underground parking, round-the-clock CCTV surveillance, and flexible down payments." },
+  { id:7,  title:"Corner View Apartments 3",  cat:"mixed", status:"Booking Closed (Successfully Delivered)", tone:"blue", details:"Fully completed and handed over residential project. Happy families currently residing." },
+  { id:19, title:"Malir Heights", cat:"mixed", status:"Under Construction (Booking Open)", tone:"green", details:"Malir Heights is a commercial + residential project under construction in Malir Town Phase 1, near Saudabad Khokhrapar, Malir. It combines commercial space with residential apartments, and booking is currently open." },
+  // Commercial
+  { id:8,  title:"GFS Chase Mall",  cat:"commercial", status:"Under Construction (Booking Open - 2nd Floor Only)", tone:"amber", details:"Mega commercial hub. 1st floor & ground floor completely sold out. Limited commercial shop units available exclusively on 2nd Floor." },
+  { id:9,  title:"GFS Twin Tower",  cat:"commercial", status:"Under Construction (Booking Open)", tone:"green",  details:"Iconic dual-tower corporate plaza offering modern IT offices, executive boardrooms, and retail showrooms on flexible payment terms." },
+  { id:10, title:"Signature Tower", cat:"commercial", status:"Launching Soon", tone:"purple", details:"Upcoming state-of-the-art skyscraper project featuring corporate floors, high-end retail, and luxury business suites." },
+  // Residential
+  { id:11, title:"North Town Residency Phase 1", cat:"residential", status:"Developed Sector",   tone:"blue",  details:"Master-planned residential gated community featuring 80 & 120 Sq. Yds plot cuttings, boundary walls, parks, and school plots." },
+  { id:12, title:"North Town Residency Phase 2", cat:"residential", status:"Developed Sector",   tone:"blue",  details:"Fully developed residential sector with paved wide streets, underground utilities, Jamia Masjid, and immediate possession options." },
+  { id:13, title:"North Town Residency Phase 3", cat:"residential", status:"Ongoing Development", tone:"green", details:"Rapidly developing society sector offering affordable 120 Sq Yds residential plot cuttings on easy monthly installments." },
+  { id:14, title:"North Town Residency Phase 4", cat:"residential", status:"Ongoing Development", tone:"green", details:"Newly launched residency phase. Prime investment location with high capital appreciation potential." },
+  { id:15, title:"Titanium Block (NTR-1)",       cat:"residential", status:"Plot Bookings Available (2 Lac Discount)", tone:"amber", details:"Flagship executive residential block in NTR Phase 1. Special 2 Lac PKR flat discount currently active on direct bookings!" },
+  { id:16, title:"Bolan Block (NTR-2)",          cat:"residential", status:"Plot Bookings Available", tone:"green", details:"Affordable residential sector in NTR Phase 2 offering 80 Sq. Yds plot cuttings suited for family residence." },
+  { id:17, title:"Bab-e-Aman (NTR-2)",           cat:"residential", status:"Limited Cuttings",       tone:"amber", details:"Exclusive residential block offering prime location plots near main entrance boulevard and commercial market." },
+  { id:18, title:"Hills Walk View Block (NTR-3)",cat:"residential", status:"Plot Bookings Available", tone:"green", details:"Scenic view residential sector in Phase 3 offering 120 Sq. Yds residential plots with long-term payment schedule." }
+];
+// Optional extra facts shown on the "View Info" page. Add your own real details here:
+// location, sizes, plan, possession, units  (only fields you fill in are shown)
+const EXTRA = {
+  19: { location:'Malir Town Phase 1, near Saudabad Khokhrapar, Malir', units:'Commercial + residential', plan:'Booking 3 Lac, Monthly 15,000' },
+  2:  { units:'2 & 3 bed apartments + shops', plan:'4-year monthly installments' },
+  5:  { units:'2 & 3 bed corner apartments' },
+  8:  { units:'Commercial shops (2nd floor)' },
+  9:  { units:'IT offices, boardrooms & showrooms' },
+  11: { sizes:'80 & 120 Sq. Yds' }, 13: { sizes:'120 Sq. Yds' },
+  16: { sizes:'80 Sq. Yds' },       18: { sizes:'120 Sq. Yds' }
+};
+const FACT_LABELS = { location:'Location', units:'Units', sizes:'Plot Sizes', plan:'Payment Plan', possession:'Possession' };
+const CAT_NAME = { mixed:'Commercial + Residential', commercial:'Commercial', residential:'Residential' };
+const CAT_POINTS = {
+  mixed: ['Shops and residential apartments combined in one project','Suitable for living, business or rental investment','Flexible payment options, ask our team for the current plan'],
+  commercial: ['Shops, offices or showrooms for business use','A good fit for retail brands and corporate offices','Floor-wise availability varies, ask for current units'],
+  residential: ['Residential plots for family living or long-term investment','Planned community with roads, utilities and shared amenities','Ask for available sizes, blocks and possession status']
+};
+const FB_URL = 'https://www.facebook.com/profile.php?id=61577410719559';
+const FILTERS = [['all','All Projects'],['mixed','Commercial + Residential'],['commercial','Commercial Only'],['residential','Residential Only']];
+const STOCK = 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=800&q=80';
+const PLACEHOLDER = 'data:image/svg+xml;utf8,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4A1A0C"/><stop offset="1" stop-color="#C8602A"/></linearGradient></defs><rect width="800" height="500" fill="url(#g)"/><text x="400" y="260" font-family="Georgia,serif" font-size="40" fill="#fff" text-anchor="middle" opacity=".85">HANIA ENTERPRISES</text></svg>');
+
+// ---------- HELPERS ----------
+function imgFallback(el) {
+  const s = +el.dataset.s || 0; el.dataset.s = s + 1;
+  if (s === 0) el.src = STOCK; else { el.onerror = null; el.src = PLACEHOLDER; }
+}
+const pimg = (p, cls) => `<img src="images/${p.id}.jpg" onerror="imgFallback(this)" alt="${p.title}" class="${cls}">`;
+const badge = p => `<span class="px-2.5 py-1 rounded text-[10px] font-bold border ${TONES[p.tone]}">${p.status}</span>`;
+
+function card(p, withInfo) {
+  return `
+  <div class="glass-card rounded-2xl overflow-hidden group flex flex-col justify-between hover:border-copper-500 transition-all">
+    <div>
+      <div class="relative h-48 overflow-hidden bg-orange-50">
+        ${pimg(p, 'w-full h-full object-cover group-hover:scale-110 transition-transform duration-500')}
+        <span class="absolute top-3 left-3">${badge(p)}</span>
+      </div>
+      <div class="p-5">
+        <h3 class="text-lg font-bold text-espresso-900 mb-1">${p.title}</h3>
+        <p class="text-xs text-copper-600 font-semibold mb-2"><i class="fa-solid fa-layer-group mr-1"></i> ${p.cat.toUpperCase()}</p>
+        <p class="text-xs text-stone-600 line-clamp-2">${p.details}</p>
+      </div>
+    </div>
+    <div class="p-5 pt-0 flex gap-2">
+      <button onclick="showProjectDetail(${p.id})" class="w-1/2 bg-orange-50 hover:bg-orange-100 text-espresso-900 font-bold py-2 rounded-lg text-xs border border-orange-200">View Info</button>
+      <button onclick="openBookingModal(${p.id})" class="w-1/2 bg-copper-500 hover:bg-copper-600 text-espresso-900 font-bold py-2 rounded-lg text-xs">Book Now</button>
+    </div>
+  </div>`;
+}
+
+// ---------- ROUTER ----------
+function showPage(id) {
+  document.querySelectorAll('.page-content').forEach(p => p.classList.add('hidden'));
+  document.getElementById('page-' + id).classList.remove('hidden');
+  document.getElementById('mobileMenu').classList.add('hidden');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  if (id === 'projects') renderProjects('all');
+}
+function filterCategory(cat) { showPage('projects'); renderProjects(cat); }
+
+function renderProjects(filter) {
+  const items = filter === 'all' ? allProjects : allProjects.filter(p => p.cat === filter);
+  document.getElementById('projectsGrid').innerHTML = items.map(card).join('');
+  document.getElementById('filterBar').innerHTML = FILTERS.map(f => `
+    <button onclick="renderProjects('${f[0]}')" class="px-5 py-2.5 rounded-xl text-xs font-bold uppercase transition ${f[0] === filter ? 'bg-copper-500 text-espresso-900' : 'bg-white border border-orange-200 text-stone-600 hover:text-espresso-900'}">${f[1]}</button>`).join('');
+}
+
+function showProjectDetail(id) {
+  const p = allProjects.find(x => x.id === id); if (!p) return;
+  document.getElementById('projectDetailContainer').innerHTML = `
+  <div class="glass-card p-8 rounded-3xl">
+    <button onclick="showPage('projects')" class="text-copper-600 text-xs font-bold mb-6 flex items-center gap-2"><i class="fa-solid fa-arrow-left"></i> Back To All Projects</button>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      ${pimg(p, 'w-full h-72 object-cover rounded-2xl border border-orange-200 shadow-xl')}
+      <div class="flex flex-col justify-between gap-6">
+        <div>
+          <div class="mb-3">${badge(p)}</div>
+          <h1 class="text-3xl font-extrabold text-espresso-900 mb-2">${p.title}</h1>
+          <p class="text-xs text-copper-600 font-semibold mb-4 uppercase">Category: ${p.cat}</p>
+          <p class="text-stone-600 text-sm leading-relaxed mb-5">${p.details}</p>
+          <div class="grid grid-cols-2 gap-3 mb-5">
+            ${Object.entries(Object.assign({}, EXTRA[p.id] || {}, p.extra || {})).map(([k, v]) => `
+              <div class="bg-orange-50 border border-orange-200 rounded-lg p-3"><div class="text-[10px] uppercase tracking-wider text-stone-500">${FACT_LABELS[k] || k}</div><div class="text-xs font-bold text-espresso-900 mt-0.5">${v}</div></div>`).join('')}
+            <div class="bg-orange-50 border border-orange-200 rounded-lg p-3"><div class="text-[10px] uppercase tracking-wider text-stone-500">Category</div><div class="text-xs font-bold text-espresso-900 mt-0.5">${CAT_NAME[p.cat]}</div></div>
+          </div>
+          <h4 class="text-sm font-bold text-espresso-900 mb-2">Project Highlights</h4>
+          <ul class="space-y-2 text-xs text-stone-600 mb-5">
+            ${CAT_POINTS[p.cat].map(t => `<li class="flex gap-2"><i class="fa-solid fa-circle-check text-copper-500 mt-0.5"></i>${t}</li>`).join('')}
+          </ul>
+          <div class="bg-cream border border-orange-200 rounded-xl p-4 text-xs text-stone-600">
+            <b class="text-espresso-900">Before you book:</b> please confirm the latest availability, price list and payment plan with our sales desk on <a href="tel:03369531343" class="text-copper-600 font-bold">0336-9531343</a>, and ask to see the project documents.
+          </div>
+        </div>
+        <div class="space-y-3">
+          <button onclick="openBookingModal(${p.id})" class="w-full bg-copper-500 hover:bg-copper-600 text-espresso-900 font-extrabold py-3 rounded-xl text-xs uppercase shadow-lg">Book This Unit / Inquire Now</button>
+          <a href="https://wa.me/923369531343?text=${encodeURIComponent('I am interested in ' + p.title)}" target="_blank" rel="noopener" class="block text-center w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3 rounded-xl text-xs uppercase"><i class="fa-brands fa-whatsapp mr-1"></i> WhatsApp Inquiry</a>
+        </div>
+      </div>
+    </div>
+  </div>`;
+  showPage('detail');
+}
+
+// ---------- CALCULATOR ----------
+function calculateEMI() {
+  const total = parseFloat(document.getElementById('calcTotal').value) || 0;
+  const pct = parseFloat(document.getElementById('calcDownPercent').value) || 20;
+  const months = (parseInt(document.getElementById('calcTenure').value) || 3) * 12;
+  const down = Math.round(total * pct / 100);
+  document.getElementById('downPercentVal').innerText = pct + '%';
+  document.getElementById('downAmountVal').innerText = 'PKR ' + down.toLocaleString();
+  document.getElementById('monthlyEMI').innerText = 'PKR ' + Math.round((total - down) / months).toLocaleString() + ' / Month';
+}
+
+// ---------- MODAL & FORMS ----------
+// openBookingModal accepts a project id (number) or a plain text title
+function openBookingModal(arg) {
+  const p = typeof arg === 'number' ? allProjects.find(x => x.id === arg) : null;
+  document.getElementById('bookingModalTitle').innerText = p ? p.title : arg;
+  const m = document.getElementById('bookingModal');
+  m.classList.remove('hidden'); m.classList.add('flex');
+}
+function closeBookingModal() {
+  const m = document.getElementById('bookingModal');
+  m.classList.add('hidden'); m.classList.remove('flex');
+}
+function toggleMobileMenu() { document.getElementById('mobileMenu').classList.toggle('hidden'); }
+function handleFormSubmit(e) {
+  e.preventDefault();
+  alert('Thank you! Your booking inquiry has been received by Hania Enterprises. Our sales desk will reach out to you at 0336-9531343.');
+  e.target.reset(); closeBookingModal();
+}
+
+// ---------- INIT ----------
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('featuredGrid').innerHTML = [15, 2, 8].map(id => card(allProjects.find(p => p.id === id))).join('');
+  document.getElementById('viewAllBtn').innerText = `View All (${allProjects.length} Projects)`;
+  document.getElementById('contactProject').innerHTML = allProjects.map(p => `<option>${p.title}</option>`).join('');
+  calculateEMI();
+});
+</script>
+</body>
+</html>
